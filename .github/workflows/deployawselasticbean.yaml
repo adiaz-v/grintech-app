@@ -29,6 +29,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: ${{ env.JAVA_VERSION }}
+    - name: Generate deployment package
+      run: zip -r deploy.zip . -x '*.git*'
 
     - name: Cache SonarCloud packages
       uses: actions/cache@v1
@@ -59,4 +61,4 @@ jobs:
         environment_name: PetClinic-env
         version_label: ${{github.SHA}}
         region: us-east-2
-        deployment_package: target/spring-petclinic-2.4.2.jar
+        deployment_package: deploy.zip
