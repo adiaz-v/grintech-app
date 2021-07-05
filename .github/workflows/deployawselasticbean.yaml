@@ -59,4 +59,4 @@ jobs:
         environment_name: PetClinic-env
         version_label: ${{github.SHA}}
         region: us-east-2
-        deployment_package: target/*.jar
+        deployment_package: target/spring-petclinic-2.4.2.jar
